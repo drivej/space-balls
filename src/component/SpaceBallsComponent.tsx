@@ -26,11 +26,7 @@ export const SpaceBallsComponent = ({ width = 500, height = 500 }: { width: numb
     }
   }, [width, height]);
 
-  return (
-    <div>
-      <canvas ref={canvasRef} width={500} height={500} />
-    </div>
-  );
+  return <canvas ref={canvasRef} width={500} height={500} />;
 };
 
 export default SpaceBallsComponent;
