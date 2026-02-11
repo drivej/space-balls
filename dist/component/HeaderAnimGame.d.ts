@@ -1,11 +1,11 @@
 export default class HeaderAnimGame {
     /**
      * @param {Object} opts
-     * @param {HTMLCanvasElement|string|null} opts.canvas - canvas element or selector (optional; the original code appends CanvasSprite canvases)
+     * @param {HTMLDivElement} opts.container - canvas element or selector (optional; the original code appends CanvasSprite canvases)
      * @param {boolean} opts.createScore - whether to create the SCORE div
      */
-    constructor({ canvas, createScore }?: {
-        canvas: HTMLCanvasElement | string | null;
+    constructor({ container, createScore }?: {
+        container: HTMLDivElement;
         createScore: boolean;
     });
     RAD: number;
@@ -43,7 +43,7 @@ export default class HeaderAnimGame {
     };
     scoreEl: HTMLDivElement | null;
     createScore: boolean;
-    canvas: Element | null;
+    container: HTMLDivElement;
     flavors: {
         purple_blue: {
             lines: {

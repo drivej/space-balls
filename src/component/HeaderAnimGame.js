@@ -7,11 +7,10 @@ import { CanvasSprite } from './CanvasSprite.js';
 export default class HeaderAnimGame {
   /**
    * @param {Object} opts
-   * @param {HTMLCanvasElement|string|null} opts.canvas - canvas element or selector (optional; the original code appends CanvasSprite canvases)
+   * @param {HTMLDivElement} opts.container - canvas element or selector (optional; the original code appends CanvasSprite canvases)
    * @param {boolean} opts.createScore - whether to create the SCORE div
    */
-  constructor({ canvas = 'canvas#header-anim', createScore = true } = {}) {
-    console.log('build game');
+  constructor({ container, createScore = true } = {}) {
     const thisGame = this;
     // --- helpers (were free functions) ---
     this.RAD = Math.PI / 180;
@@ -58,8 +57,9 @@ export default class HeaderAnimGame {
     this.scoreEl = null;
     this.createScore = createScore;
 
+    this.container = container;
     // optional canvas handle if you want to pass one in
-    this.canvas = typeof canvas === 'string' ? document.querySelector(canvas) : canvas instanceof HTMLCanvasElement ? canvas : null;
+    // this.canvas = typeof canvas === 'string' ? document.querySelector(canvas) : canvas instanceof HTMLCanvasElement ? canvas : null;
 
     // compute from acceleration (same as original)
     this.viewport.mouseFactor = this.interpolate(0.02, 0.05, this.viewport.acceleration);
@@ -170,8 +170,8 @@ export default class HeaderAnimGame {
       this.scoreEl = document.createElement('div');
       this.scoreEl.id = 'score';
       this.scoreEl.textContent = 'kills: 0';
-      Object.assign(this.scoreEl.style, { padding: '10px', zIndex: '990', position: 'absolute', top: '0px', color: '#fff', zIndex:3});
-      document.body.appendChild(this.scoreEl);
+      Object.assign(this.scoreEl.style, { padding: '10px', zIndex: '990', position: 'absolute', top: '0px', color: '#fff', zIndex: 3 });
+      this.container.appendChild(this.scoreEl);
       this.scoreEl.id = 'l0';
     }
 
@@ -196,7 +196,7 @@ export default class HeaderAnimGame {
 
     // window.addEventListener('resize', this._handleResize);
     // this.handleResize(true);
-    this.resize(this.canvas.width, this.canvas.height);
+    // this.resize(this.canvas.width, this.canvas.height);
     this.startAnim();
 
     this.setFlavor('purple_blue');
@@ -223,10 +223,10 @@ export default class HeaderAnimGame {
   // ------- UI / mounting -------
   mountLayers() {
     // mimic original z-index placement
-    Object.assign(this.layers[0].cvs.style, { zIndex: '900', position: 'absolute', top: '0px', left: '0px', zIndex:1 });
-    Object.assign(this.layers[1].cvs.style, { zIndex: '910', position: 'absolute', top: '0px', left: '0px', zIndex:2 });
-    document.body.appendChild(this.layers[0].cvs);
-    document.body.appendChild(this.layers[1].cvs);
+    Object.assign(this.layers[0].cvs.style, { zIndex: '900', position: 'absolute', top: '0px', left: '0px', zIndex: 1 });
+    Object.assign(this.layers[1].cvs.style, { zIndex: '910', position: 'absolute', top: '0px', left: '0px', zIndex: 2 });
+    this.container.appendChild(this.layers[0].cvs);
+    this.container.appendChild(this.layers[1].cvs);
     this.layers[0].cvs.id = 'l0';
     this.layers[1].cvs.id = 'l1';
   }

@@ -27,7 +27,7 @@ function ComponentPage() {
   return (
     <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', minHeight: '100vh' }}>
       <h1 style={{ marginBottom: '2rem', color: '#fff' }}>Component Page</h1>
-      <SpaceBallsComponent width={width} height={height} />
+      <SpaceBallsComponent width={width * 0.8} height={height * 0.8} />
       <pre>{JSON.stringify({width, height}, null, 2)}</pre>
     </div>
   );
