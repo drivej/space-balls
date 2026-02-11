@@ -2487,6 +2487,6 @@ const as = ({ width: h = 500, height: t = 500 }) => {
   }, [h, t]), /* @__PURE__ */ yi("div", { children: /* @__PURE__ */ yi("canvas", { ref: e, width: 500, height: 500 }) });
 };
 export {
-  as as MyComponent
+  as as SpaceBallsComponent
 };
 //# sourceMappingURL=index.js.map

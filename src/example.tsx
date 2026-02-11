@@ -1,4 +1,4 @@
-import { MyComponent } from './index';
+import { SpaceBallsComponent } from './index';
 
 /**
  * Example usage of Sound Vis component
@@ -6,7 +6,7 @@ import { MyComponent } from './index';
 export function Example() {
   return (
     <div style={{ width: '100vw', height: '100vh' }}>
-      <MyComponent />
+      <SpaceBallsComponent width={500} height={500} />
 
       <div
         style={{
@@ -38,7 +38,7 @@ export function FixedSizeExample() {
         background: '#1a1a1a'
       }}
     >
-      <MyComponent />
+      <SpaceBallsComponent width={500} height={500}  />
     </div>
   );
 }

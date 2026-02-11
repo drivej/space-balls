@@ -1,5 +1,5 @@
 // import { useEffect, useRef, useState } from 'react';
-import { MyComponent } from 'my-component';
+import { SpaceBallsComponent } from 'my-component';
 import { useWindowSize } from 'usehooks-ts';
 // import audioSrc from '../assets/48K_1713045663.m4a';
 
@@ -27,7 +27,7 @@ function ComponentPage() {
   return (
     <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', minHeight: '100vh' }}>
       <h1 style={{ marginBottom: '2rem', color: '#fff' }}>Component Page</h1>
-      <MyComponent width={width} height={height} />
+      <SpaceBallsComponent width={width} height={height} />
       <pre>{JSON.stringify({width, height}, null, 2)}</pre>
     </div>
   );

@@ -1,1 +1,1 @@
-export { SpaceBallsComponent as MyComponent } from './component/SpaceBallsComponent';
+export { SpaceBallsComponent } from './component/SpaceBallsComponent';
