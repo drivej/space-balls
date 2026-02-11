@@ -8,7 +8,7 @@ export const SpaceBallsComponent = ({ width = 500, height = 500 }: { width: numb
   useEffect(() => {
     if (canvasRef.current) {
       try {
-        game.current = new HeaderAnimGame({ canvas: canvasRef.current, createScore: false });
+        game.current = new HeaderAnimGame({ canvas: canvasRef.current, createScore: true });
         game.current.initGame();
         game.current.resize(width, height);
         return () => {

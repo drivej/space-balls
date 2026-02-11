@@ -169,8 +169,8 @@ export default class HeaderAnimGame {
     if (this.createScore) {
       this.scoreEl = document.createElement('div');
       this.scoreEl.id = 'score';
-      this.scoreEl.textContent = 'SCORE';
-      Object.assign(this.scoreEl.style, { padding: '10px', zIndex: '990', position: 'fixed', top: '0px' });
+      this.scoreEl.textContent = 'kills: 0';
+      Object.assign(this.scoreEl.style, { padding: '10px', zIndex: '990', position: 'absolute', top: '0px', color: '#fff', zIndex:3});
       document.body.appendChild(this.scoreEl);
       this.scoreEl.id = 'l0';
     }
@@ -223,8 +223,8 @@ export default class HeaderAnimGame {
   // ------- UI / mounting -------
   mountLayers() {
     // mimic original z-index placement
-    Object.assign(this.layers[0].cvs.style, { zIndex: '900', position: 'fixed', top: '0px', left: '0px' });
-    Object.assign(this.layers[1].cvs.style, { zIndex: '910', position: 'fixed', top: '0px', left: '0px' });
+    Object.assign(this.layers[0].cvs.style, { zIndex: '900', position: 'absolute', top: '0px', left: '0px', zIndex:1 });
+    Object.assign(this.layers[1].cvs.style, { zIndex: '910', position: 'absolute', top: '0px', left: '0px', zIndex:2 });
     document.body.appendChild(this.layers[0].cvs);
     document.body.appendChild(this.layers[1].cvs);
     this.layers[0].cvs.id = 'l0';
@@ -314,7 +314,8 @@ export default class HeaderAnimGame {
   // ------- core logic -------
   updateScore() {
     if (!this.scoreEl) return;
-    this.scoreEl.textContent = `lvl:${this.score.level} kills:${this.score.kills} ${this.score.points}`;
+    // this.scoreEl.textContent = `lvl:${this.score.level} kills:${this.score.kills} ${this.score.points}`;
+    this.scoreEl.textContent = `kills: ${this.score.kills}`;
   }
 
   addDot() {

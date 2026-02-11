@@ -2272,7 +2272,7 @@ class ns {
   }
   // ------- lifecycle -------
   initGame() {
-    this.createScore && (this.scoreEl = document.createElement("div"), this.scoreEl.id = "score", this.scoreEl.textContent = "SCORE", Object.assign(this.scoreEl.style, { padding: "10px", zIndex: "990", position: "fixed", top: "0px" }), document.body.appendChild(this.scoreEl), this.scoreEl.id = "l0"), this.setupLayers(), this.mountLayers(), document.addEventListener("mousedown", this._handleMouse), document.addEventListener("mouseup", this._handleMouse), document.addEventListener("mousemove", this._handleMouse), window.addEventListener("keydown", this._handleKeys), document.body.addEventListener("keyup", this._handleKeysBody), document.body.addEventListener("keydown", this._handleKeysBody);
+    this.createScore && (this.scoreEl = document.createElement("div"), this.scoreEl.id = "score", this.scoreEl.textContent = "kills: 0", Object.assign(this.scoreEl.style, { padding: "10px", zIndex: "990", position: "absolute", top: "0px", color: "#fff", zIndex: 3 }), document.body.appendChild(this.scoreEl), this.scoreEl.id = "l0"), this.setupLayers(), this.mountLayers(), document.addEventListener("mousedown", this._handleMouse), document.addEventListener("mouseup", this._handleMouse), document.addEventListener("mousemove", this._handleMouse), window.addEventListener("keydown", this._handleKeys), document.body.addEventListener("keyup", this._handleKeysBody), document.body.addEventListener("keydown", this._handleKeysBody);
     for (let t = 0; t < 5; t++) this.makeLine();
     for (let t = 0; t < 3; t++) this.addDot();
     this.prerender(), this.resize(this.canvas.width, this.canvas.height), this.startAnim(), this.setFlavor("purple_blue");
@@ -2282,7 +2282,7 @@ class ns {
   }
   // ------- UI / mounting -------
   mountLayers() {
-    Object.assign(this.layers[0].cvs.style, { zIndex: "900", position: "fixed", top: "0px", left: "0px" }), Object.assign(this.layers[1].cvs.style, { zIndex: "910", position: "fixed", top: "0px", left: "0px" }), document.body.appendChild(this.layers[0].cvs), document.body.appendChild(this.layers[1].cvs), this.layers[0].cvs.id = "l0", this.layers[1].cvs.id = "l1";
+    Object.assign(this.layers[0].cvs.style, { zIndex: "900", position: "absolute", top: "0px", left: "0px", zIndex: 1 }), Object.assign(this.layers[1].cvs.style, { zIndex: "910", position: "absolute", top: "0px", left: "0px", zIndex: 2 }), document.body.appendChild(this.layers[0].cvs), document.body.appendChild(this.layers[1].cvs), this.layers[0].cvs.id = "l0", this.layers[1].cvs.id = "l1";
   }
   setupLayers() {
     const t = this;
@@ -2323,7 +2323,7 @@ class ns {
   }
   // ------- core logic -------
   updateScore() {
-    this.scoreEl && (this.scoreEl.textContent = `lvl:${this.score.level} kills:${this.score.kills} ${this.score.points}`);
+    this.scoreEl && (this.scoreEl.textContent = `kills: ${this.score.kills}`);
   }
   addDot() {
     const t = {
@@ -2476,7 +2476,7 @@ const as = ({ width: h = 500, height: t = 500 }) => {
   return xi(() => {
     if (e.current)
       try {
-        return i.current = new ns({ canvas: e.current, createScore: !1 }), i.current.initGame(), i.current.resize(h, t), () => {
+        return i.current = new ns({ canvas: e.current, createScore: !0 }), i.current.initGame(), i.current.resize(h, t), () => {
           i.current.destroy();
         };
       } catch (r) {
