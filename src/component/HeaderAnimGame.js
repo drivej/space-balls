@@ -180,13 +180,13 @@ export default class HeaderAnimGame {
     this.mountLayers();
 
     // events (no jQuery)
-    document.addEventListener('mousedown', this._handleMouse);
-    document.addEventListener('mouseup', this._handleMouse);
-    document.addEventListener('mousemove', this._handleMouse);
+    this.container.addEventListener('mousedown', this._handleMouse);
+    this.container.addEventListener('mouseup', this._handleMouse);
+    this.container.addEventListener('mousemove', this._handleMouse);
 
-    window.addEventListener('keydown', this._handleKeys);
-    document.body.addEventListener('keyup', this._handleKeysBody);
-    document.body.addEventListener('keydown', this._handleKeysBody);
+    // window.addEventListener('keydown', this._handleKeys);
+    // document.body.addEventListener('keyup', this._handleKeysBody);
+    // document.body.addEventListener('keydown', this._handleKeysBody);
 
     // content
     for (let i = 0; i < 5; i++) this.makeLine();
@@ -207,13 +207,13 @@ export default class HeaderAnimGame {
     this.stopAnim();
     // window.removeEventListener('resize', this._handleResize);
 
-    document.removeEventListener('mousedown', this._handleMouse);
-    document.removeEventListener('mouseup', this._handleMouse);
-    document.removeEventListener('mousemove', this._handleMouse);
+    this.container.removeEventListener('mousedown', this._handleMouse);
+    this.container.removeEventListener('mouseup', this._handleMouse);
+    this.container.removeEventListener('mousemove', this._handleMouse);
 
-    window.removeEventListener('keydown', this._handleKeys);
-    document.body.removeEventListener('keyup', this._handleKeysBody);
-    document.body.removeEventListener('keydown', this._handleKeysBody);
+    // window.removeEventListener('keydown', this._handleKeys);
+    // document.body.removeEventListener('keyup', this._handleKeysBody);
+    // document.body.removeEventListener('keydown', this._handleKeysBody);
 
     // remove DOM if we created it
     if (this.scoreEl?.parentNode) this.scoreEl.parentNode.removeChild(this.scoreEl);
