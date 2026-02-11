@@ -1,7 +1,7 @@
 import { useEffect, useRef } from 'react';
 import HeaderAnimGame from './HeaderAnimGame.js';
 
-export const MyComponent = ({ width = 500, height = 500 }: { width: number; height: number }) => {
+export const SpaceBallsComponent = ({ width = 500, height = 500 }: { width: number; height: number }) => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const game = useRef<HeaderAnimGame>(null!);
 
@@ -33,4 +33,4 @@ export const MyComponent = ({ width = 500, height = 500 }: { width: number; heig
   );
 };
 
-export default MyComponent;
+export default SpaceBallsComponent;
